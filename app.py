@@ -51,7 +51,6 @@ def generate_image_description(image_bytes):
 
     # Preprocess the image for BLIP
     inputs = processor(images=image, return_tensors="pt")
-
     # Generate caption
     out = model.generate(**inputs)
     caption = processor.decode(out[0], skip_special_tokens=True, clean_up_tokenization_spaces=True)
